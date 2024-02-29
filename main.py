@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 
 @app.route("/<name>")
-@app.route("/index/<name>")
-def index(name):
-    return render_template('base.html', name=name)
+@app.route("/index/<title>")
+def index(title):
+    return render_template('base.html', title=title)
 
 
 if __name__ == "__main__":

@@ -4,11 +4,12 @@ from flask import Flask, url_for, request, render_template
 app = Flask(__name__)
 
 
-
-@app.route("/<name>")
-@app.route("/index/<title>")
-def index(title):
-    return render_template('base.html', title=title)
+@app.route("/training/<prof>")
+def index(prof):
+    if "инженер" in prof or "строитель" in prof:
+        return render_template('base.html', prof="Инженерные тренажеры")
+    else:
+        return render_template('base.html', prof="Научные симуляторы")
 
 
 if __name__ == "__main__":
